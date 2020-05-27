@@ -84,7 +84,7 @@ class MyOTPView : LinearLayout {
             if (dataView != null) {
                 for (i in 0 until dataView!!.childCount) {
                     val view = dataView!!.getChildAt(i) as DigitView
-                    value = value + view.editView.text.toString()
+                    value += view.editView.text.toString()
                 }
             }
             return value
