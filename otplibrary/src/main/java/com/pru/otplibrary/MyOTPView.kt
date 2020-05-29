@@ -37,14 +37,14 @@ open class MyOTPView : LinearLayout {
         val typedArray = context.obtainStyledAttributes(attrs,
             R.styleable.MyOTPView
         )
-        sizeDigits = typedArray.getInt(R.styleable.MyOTPView_digit_size, 4)
-        default = typedArray.getString(R.styleable.MyOTPView_digit_default_text) ?: "*"
+        sizeDigits = typedArray.getInt(R.styleable.MyOTPView_digits_count, 4)
+        default = typedArray.getString(R.styleable.MyOTPView_digits_default_text) ?: "*"
         digitColor = typedArray.getColor(
-            R.styleable.MyOTPView_digit_color,ContextCompat.getColor(mContext,
+            R.styleable.MyOTPView_digits_color,ContextCompat.getColor(mContext,
                 R.color.colorPrimaryDark
             ))
         textSize = typedArray.getDimension(
-            R.styleable.MyOTPView_android_textSize, 17f
+            R.styleable.MyOTPView_digits_textSize, 17f
         )
 
         typedArray.recycle()
