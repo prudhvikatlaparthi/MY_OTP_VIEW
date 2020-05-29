@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="MyOTPView">
-        <attr name="digit_size" format="integer" />
-        <attr name="digit_color" format="color" />
-        <attr name="digit_default_text" format="string" />
-        <attr name="android:textSize" format="dimension"/>
+        <attr name="digits_count" format="integer" />
+        <attr name="digits_color" format="color" />
+        <attr name="digits_default_text" format="string" />
+        <attr name="digits_textSize" format="dimension"/>
     </declare-styleable>
-
-
 </resources>
