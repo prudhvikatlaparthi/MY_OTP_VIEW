@@ -1,13 +1,12 @@
-package com.pru
+package com.pru.otplibrary
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
-import com.pru.myotpview.R
 
-class MyOTPView : LinearLayout {
+open class MyOTPView : LinearLayout {
     private var digitColor: Int=0
     private var textSize: Float = 17f
     private var pinSecureDigitListener: SecureDigitListener? = null
@@ -60,7 +59,7 @@ class MyOTPView : LinearLayout {
         this.sizeDigits = count
         for (i in 0 until count) {
             val OTPEditTextView =
-                DigitView(
+                com.pru.otplibrary.DigitView(
                     i,
                     mContext,
                     dataView,
@@ -83,7 +82,7 @@ class MyOTPView : LinearLayout {
             var value = ""
             if (dataView != null) {
                 for (i in 0 until dataView!!.childCount) {
-                    val view = dataView!!.getChildAt(i) as DigitView
+                    val view = dataView!!.getChildAt(i) as com.pru.otplibrary.DigitView
                     value += view.editView.text.toString()
                 }
             }
@@ -93,10 +92,10 @@ class MyOTPView : LinearLayout {
     fun clearDigits() {
         if (dataView != null) {
             for (i in 0 until dataView!!.childCount) {
-                var view = dataView!!.getChildAt(i) as DigitView
+                var view = dataView!!.getChildAt(i) as com.pru.otplibrary.DigitView
                 view.clearOTP()
                 if (i == dataView!!.childCount - 1) {
-                    view = dataView!!.getChildAt(0) as DigitView
+                    view = dataView!!.getChildAt(0) as com.pru.otplibrary.DigitView
                     view.requestFocus()
                 }
             }
