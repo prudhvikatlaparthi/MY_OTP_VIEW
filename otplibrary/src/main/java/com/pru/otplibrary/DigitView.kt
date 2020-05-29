@@ -1,4 +1,4 @@
-package com.pru
+package com.pru.otplibrary
 
 import android.app.Activity
 import android.content.Context
@@ -11,7 +11,6 @@ import android.view.View.OnKeyListener
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.LinearLayout
-import com.pru.myotpview.R
 
 class DigitView : LinearLayout {
     private var mContext: Context
