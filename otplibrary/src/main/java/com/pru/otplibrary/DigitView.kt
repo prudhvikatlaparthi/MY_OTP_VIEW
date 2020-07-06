@@ -20,6 +20,7 @@ class DigitView : LinearLayout {
     private var isDeleted = false
     private var count = 0
     private var digitColor = 0
+    private var digitDefaultColor = 0
     private var textSize : Float= 17f
     private var default :String ="*"
     private var secureDigitListener : SecureDigitListener? = null
@@ -32,6 +33,7 @@ class DigitView : LinearLayout {
         default: String,
         textSize : Float,
         digitColor : Int,
+        digitDefaultColor : Int,
         secureDigitListener: SecureDigitListener
     ) : super(context) {
         mContext = context
@@ -41,6 +43,7 @@ class DigitView : LinearLayout {
         this.default = default
         this.textSize = textSize
         this.digitColor = digitColor
+        this.digitDefaultColor = digitDefaultColor
         this.secureDigitListener = secureDigitListener
         init()
     }
@@ -69,6 +72,7 @@ class DigitView : LinearLayout {
         editView.hint= default
         editView.textSize = textSize
         editView.setTextColor(digitColor)
+        editView.setHintTextColor(digitDefaultColor)
         editView.addTextChangedListener(textWatcher)
         editView.setOnKeyListener(OnKeyListener { v, keyCode, event ->
             if (event.action != KeyEvent.ACTION_DOWN) return@OnKeyListener true

@@ -6,8 +6,9 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 
-open class MyOTPView : LinearLayout {
-    private var digitColor: Int=0
+class MyOTPView : LinearLayout {
+    private var digitColor: Int = 0
+    private var digitDefaultColor: Int = 0
     private var textSize: Float = 17f
     private var pinSecureDigitListener: SecureDigitListener? = null
     private var mContext: Context
@@ -15,6 +16,10 @@ open class MyOTPView : LinearLayout {
     private var sizeDigits = 0
     private var default: String = "*"
 
+    constructor(context: Context) : super(context){
+        mContext = context
+        init(null)
+    }
 
     constructor(
         context: Context,
@@ -34,15 +39,24 @@ open class MyOTPView : LinearLayout {
     }
 
     private fun init(attrs: AttributeSet?) {
-        val typedArray = context.obtainStyledAttributes(attrs,
+        val typedArray = context.obtainStyledAttributes(
+            attrs,
             R.styleable.MyOTPView
         )
         sizeDigits = typedArray.getInt(R.styleable.MyOTPView_digits_count, 4)
         default = typedArray.getString(R.styleable.MyOTPView_digits_default_text) ?: "*"
         digitColor = typedArray.getColor(
-            R.styleable.MyOTPView_digits_color,ContextCompat.getColor(mContext,
-                R.color.colorPrimaryDark
-            ))
+            R.styleable.MyOTPView_digits_color, ContextCompat.getColor(
+                mContext,
+                R.color.black
+            )
+        )
+        digitDefaultColor = typedArray.getColor(
+            R.styleable.MyOTPView_digits_default_text_color, ContextCompat.getColor(
+                mContext,
+                R.color.tint
+            )
+        )
         textSize = typedArray.getDimension(
             R.styleable.MyOTPView_digits_textSize, 17f
         )
@@ -67,6 +81,7 @@ open class MyOTPView : LinearLayout {
                     default,
                     textSize,
                     digitColor,
+                    digitDefaultColor,
                     object : SecureDigitListener {
                         override fun lastDigitChecked() {
                             pinSecureDigitListener?.lastDigitChecked()
