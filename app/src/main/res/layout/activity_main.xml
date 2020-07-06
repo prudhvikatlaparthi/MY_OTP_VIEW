@@ -7,11 +7,15 @@
     tools:context="com.pru.MainActivity">
 
     <com.pru.otplibrary.MyOTPView
+        android:id="@+id/otp_screen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:digits_count="5"
-        app:digits_default_text="*"
+        android:orientation="vertical"
+        app:digit_size="5"
+        app:digit_color="@color/black"
+        app:digit_default_text="*"
         app:digits_textSize="14sp"
+        app:digits_default_text_color="#F44336"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
